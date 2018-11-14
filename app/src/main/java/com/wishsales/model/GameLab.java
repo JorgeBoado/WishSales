@@ -1,4 +1,4 @@
-package com.wishsales;
+package com.wishsales.model;
 
 import android.content.Context;
 
@@ -34,6 +34,14 @@ public class GameLab {
             game.setDisposition(Game.IN_STORE);
             game.setPortada(i % 2 == 0 ? "" : ""); // TODO cambiar el texto por R.findid
 
+            if (i % 5 == 0) {
+                if (i % 10 == 0) {
+                    game.setDisposition(Game.IN_WISHLIST);
+                } else {
+                    game.setDisposition(Game.IN_LIBRARY);
+                }
+            }
+
             mGames.add(game);
         }
 
@@ -41,6 +49,15 @@ public class GameLab {
 
     public List<Game> getGames() {
         return mGames;
+    }
+
+    public List<Game> getGames(byte disposition) {
+        List<Game> games = new ArrayList<>();
+        for (Game game : mGames) {
+            if (game.getDisposition() == disposition)
+                games.add(game);
+        }
+        return games;
     }
 
     public Game getGame(UUID id) {

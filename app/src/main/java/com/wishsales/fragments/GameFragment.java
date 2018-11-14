@@ -1,6 +1,5 @@
-package com.wishsales;
+package com.wishsales.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,17 +8,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.List;
+import com.wishsales.R;
+import com.wishsales.model.Game;
+import com.wishsales.model.GameLab;
 
-public class StoreFragment extends Fragment{
-    //private List<Game> mGames; Lista de juegos a mostrar
+import java.util.UUID;
 
-    public static final String FRAGMENT_ID = "store_fragment";
+public class GameFragment extends Fragment{
+    private Game mGame;
 
-    public static StoreFragment newInstance() {
+    private static final String ARG_GAME_ID = "game_id";
+
+    public static GameFragment newInstance(UUID gameId) {
         Bundle args = new Bundle();
+        args.putSerializable(ARG_GAME_ID, gameId);
 
-        StoreFragment fragment = new StoreFragment();
+        GameFragment fragment = new GameFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -27,6 +31,8 @@ public class StoreFragment extends Fragment{
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        UUID gameId = (UUID) getArguments().getSerializable(ARG_GAME_ID);
+        mGame = GameLab.getInstance(getActivity()).getGame(gameId);
     }
 
     @Nullable
@@ -34,7 +40,7 @@ public class StoreFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_store, container, false);
 
-        // Añadir lista de juegos para mostrar
+        // Añadir datos del juego a componentes
 
         return v;
     }

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">WishSales</string>
+    <!--GridMenu-->
+    <string name="grind_item_button">Ver</string>
+    <!--Pager-->
+    <string name="last_index_button">Ultimo</string>
+    <string name="first_index_button">Primero</string>
+
 </resources>

@@ -1,4 +1,4 @@
-package com.wishsales;
+package com.wishsales.model;
 
 import java.util.UUID;
 

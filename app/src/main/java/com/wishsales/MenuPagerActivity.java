@@ -10,6 +10,11 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.wishsales.fragments.LibraryFragment;
+import com.wishsales.fragments.StoreFragment;
+import com.wishsales.fragments.WishListFragment;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class MenuPagerActivity extends AppCompatActivity {
@@ -30,11 +35,15 @@ public class MenuPagerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu_pager);
 
         String menuId = (String) getIntent().getStringExtra(EXTRA_MENU_ID);
+        if (menuId == null) {
+            menuId = StoreFragment.FRAGMENT_ID;
+        }
 
         mViewPager = (ViewPager) findViewById(R.id.menu_view_pager);
-        mFragments.add(StoreFragment.FRAGMENT_ID); //TODO quitar comentarios
-        //mFragments.add(LibraryFragment.FRAGMENT_ID);
-        //mFragments.add(WishListFragment.FRAGMENT_ID);
+        mFragments = new ArrayList<>();
+        mFragments.add(WishListFragment.FRAGMENT_ID);
+        mFragments.add(StoreFragment.FRAGMENT_ID);
+        mFragments.add(LibraryFragment.FRAGMENT_ID);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
@@ -42,11 +51,11 @@ public class MenuPagerActivity extends AppCompatActivity {
             public Fragment getItem(int i) {
                 switch (mFragments.get(i)) {
                     case StoreFragment.FRAGMENT_ID:
-                        return StoreFragment.newInstance();/* TODO quitar comentario
+                        return StoreFragment.newInstance();
                     case LibraryFragment.FRAGMENT_ID:
                         return LibraryFragment.newInstance();
                     case WishListFragment.FRAGMENT_ID:
-                        return WishListFragment.newInstance();*/
+                        return WishListFragment.newInstance();
                     default:
                         return null;
                 }

@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 
+import com.wishsales.fragments.GameFragment;
+import com.wishsales.fragments.SingleFragmentActivity;
+
 import java.util.UUID;
 
 public class GameActivity extends SingleFragmentActivity {
