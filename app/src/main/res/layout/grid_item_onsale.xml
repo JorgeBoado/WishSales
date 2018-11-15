@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/grid_item_onsale"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <ImageView
@@ -11,23 +11,29 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
+        android:contentDescription="@string/grid_list_cover"
         android:src="@drawable/ic_solved" />
 
     <LinearLayout
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
 
         <Button
             android:id="@+id/grid_buy_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            android:text="@string/grind_item_button"/>
+            android:text="@string/grid_item_button" />
+        <!-- No podemos usar esto por que es de la API 26 y estamos en la 19
+        android:autoSizeTextType="uniform"-->
+
 
         <ImageView
+            android:id="@+id/grid_sale_icon"
             android:layout_width="36dp"
             android:layout_height="match_parent"
+            android:contentDescription="@string/grid_item_sale"
             android:src="@drawable/ic_solved" />
     </LinearLayout>
 

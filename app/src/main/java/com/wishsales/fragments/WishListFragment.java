@@ -66,7 +66,7 @@ public class WishListFragment extends Fragment {
             super(inflater.inflate(viewType, parent, false));
             itemView.setOnClickListener(this);
 
-            mTitleTextView = (TextView) itemView.findViewById(R.id.game_title);
+            mTitleTextView = (TextView) itemView.findViewById(R.id.list_game_name);
         }
 
         @Override

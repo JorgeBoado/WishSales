@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <!--ViewGame-->
+    <color name="view_game_button">#35a92f</color>
+    <color name="view_game_description">#b16c6c6c</color>
 </resources>

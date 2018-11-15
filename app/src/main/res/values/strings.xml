@@ -1,9 +1,22 @@
 <resources>
     <string name="app_name">WishSales</string>
     <!--GridMenu-->
-    <string name="grind_item_button">Ver</string>
+    <string name="grid_item_button">Titulo Juego</string>
+    <string name="grid_list_cover">Portada</string>
+    <string name="grid_item_sale">Icono Descuento</string>
     <!--Pager-->
     <string name="last_index_button">Ultimo</string>
     <string name="first_index_button">Primero</string>
-
+    <!--WishList-->
+    <string name="list_item_name">Titulo Juego</string>
+    <string name="list_item_button">Comprar</string>
+    <string name="list_cover">Portada</string>
+    <string name="list_item_sale">Icono Descuento</string>
+    <!--GameView-->
+    <string name="view_game_name">Titulo Juego</string>
+    <string name="view_game_cover">Portada</string>
+    <string name="view_game_wish">Lista de deseos</string>
+    <string name="view_game_price">PrecioActual</string>
+    <string name="view_game_buy">Comprar</string>
+    <string name="view_game_description">Descripcion</string>
 </resources>

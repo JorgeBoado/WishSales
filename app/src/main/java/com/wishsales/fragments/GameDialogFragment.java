@@ -48,7 +48,7 @@ public class GameDialogFragment extends DialogFragment {
 
         View v = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_game, null);
 
-        mGameName = (TextView) v.findViewById(R.id.game_name);
+        mGameName = (TextView) v.findViewById(R.id.view_game_name);
         mGameName.setText(game.getName());
 
         return new AlertDialog.Builder(getActivity())

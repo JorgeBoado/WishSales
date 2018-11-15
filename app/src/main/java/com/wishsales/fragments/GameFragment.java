@@ -42,7 +42,7 @@ public class GameFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_game, container, false);
 
-        mNameField = (TextView) v.findViewById(R.id.game_name);
+        mNameField = (TextView) v.findViewById(R.id.view_game_name);
         mNameField.setText(mGame.getName());
 
         return v;
