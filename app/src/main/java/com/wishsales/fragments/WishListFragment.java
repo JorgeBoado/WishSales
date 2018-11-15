@@ -22,6 +22,8 @@ import java.util.List;
 
 public class WishListFragment extends Fragment {
     public static final String FRAGMENT_ID = "wishlist_fragment";
+    private static final String DIALOG_ANSWER = "game_dialog_answer";
+    private static final int DIALOG_RESPONSE = 0;
 
     private RecyclerView mCrimeRecyclerView;
     private GameAdapter mAdapter;
@@ -69,8 +71,9 @@ public class WishListFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Intent intent = GameActivity.newIntent(getActivity(), mGame.getId());
-            startActivity(intent);
+            GameDialogFragment dialog = GameDialogFragment.newInstance(mGame.getId());
+            dialog.setTargetFragment(WishListFragment.this, DIALOG_RESPONSE);
+            dialog.show(getFragmentManager(), DIALOG_ANSWER);
         }
 
         public void bind(Game game) {

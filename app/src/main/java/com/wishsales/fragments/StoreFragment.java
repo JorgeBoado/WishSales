@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.wishsales.GameActivity;
 import com.wishsales.R;
+import com.wishsales.StorePagerActivity;
 import com.wishsales.model.Game;
 import com.wishsales.model.GameLab;
 
@@ -70,7 +71,7 @@ public class StoreFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Intent intent = GameActivity.newIntent(getActivity(), mGame.getId());
+            Intent intent = StorePagerActivity.newIntent(getActivity(), mGame.getId());
             startActivity(intent);
         }
 

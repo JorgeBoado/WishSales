@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.wishsales.R;
 import com.wishsales.model.Game;
@@ -16,6 +17,7 @@ import java.util.UUID;
 
 public class GameFragment extends Fragment{
     private Game mGame;
+    private TextView mNameField;
 
     private static final String ARG_GAME_ID = "game_id";
 
@@ -38,9 +40,10 @@ public class GameFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_store, container, false);
+        View v = inflater.inflate(R.layout.fragment_game, container, false);
 
-        // Añadir datos del juego a componentes
+        mNameField = (TextView) v.findViewById(R.id.game_name);
+        mNameField.setText(mGame.getName());
 
         return v;
     }

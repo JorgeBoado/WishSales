@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wishsales.GameActivity;
 import com.wishsales.R;
@@ -68,8 +69,8 @@ public class LibraryFragment extends Fragment{
 
         @Override
         public void onClick(View v) {
-            Intent intent = GameActivity.newIntent(getActivity(), mGame.getId());
-            startActivity(intent);
+            // TODO cambiar por value string
+            Toast.makeText(getContext(), "Ejecutando "+mGame.getName()+"...", Toast.LENGTH_SHORT).show();
         }
 
         public void bind(Game game) {
