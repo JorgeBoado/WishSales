@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- TODO Jorge (boton añadir juego a la tienda y titulo) -->
 <android.support.v7.widget.RecyclerView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/store_fragment"
