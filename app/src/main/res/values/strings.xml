@@ -19,4 +19,8 @@
     <string name="view_game_price">PrecioActual</string>
     <string name="view_game_buy">Comprar</string>
     <string name="view_game_description">Descripcion</string>
+    <!--Library-->
+    <string name="library_game_name">Titulo</string>
+    <string name="library_game_button">Jugar</string>
+    <string name="library_game_cover">Portada</string>
 </resources>

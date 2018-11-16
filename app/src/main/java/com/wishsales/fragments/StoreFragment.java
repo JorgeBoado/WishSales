@@ -61,14 +61,14 @@ public class StoreFragment extends Fragment {
 
     private class GameHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private Game mGame;
-        private Button mTitleTextView;
+        private TextView mTitleTextView;
         private ImageView mCoverImage;
 
         public GameHolder(LayoutInflater inflater, ViewGroup parent, int viewType) {
             super(inflater.inflate(viewType, parent, false));
             itemView.setOnClickListener(this);
 
-            mTitleTextView = (Button) itemView.findViewById(R.id.grid_buy_button);
+            mTitleTextView = (TextView) itemView.findViewById(R.id.grid_buy_button);
             mCoverImage = (ImageView) itemView.findViewById(R.id.grid_game_cover);
         }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- TODO Ajustar los botones de la lista de deseos, de la tienda a aprtir del 10 si tiene el icono de descuento salta de linea tambien. Faltan la vista de juegos con descuento, y los items para la libreria.-->
+<!-- TODO Faltan la vista de juegos con descuento.-->
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/game_fragment"

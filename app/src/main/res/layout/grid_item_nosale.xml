@@ -7,18 +7,19 @@
 
     <ImageView
         android:id="@+id/grid_game_cover"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="113dp"
+        android:layout_height="116dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:contentDescription="@string/grid_list_cover"
         android:src="@drawable/icon_1" />
 
-    <Button
+    <TextView
         android:id="@+id/grid_buy_button"
         android:layout_width="115dp"
-        android:layout_height="50dp"
+        android:layout_height="61dp"
         android:layout_gravity="center"
+        android:gravity="center"
         android:text="@string/grid_item_button" />
     <!-- No podemos usar esto por que es de la API 26 y estamos en la 19
         android:autoSizeTextType="uniform"-->
