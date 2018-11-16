@@ -4,12 +4,12 @@ import java.util.UUID;
 
 public class Game {
     private UUID mId;
-    private String mPortada;
     private String mName;
     private String mDescription;
     private double mPrice;
     private double mFinalPrice;
     private boolean mInSale;
+    private int mPortada;
     private int mDiscount;
     private byte mDisposition;
 
@@ -17,7 +17,7 @@ public class Game {
     public static final byte IN_WISHLIST = 1;
     public static final byte IN_LIBRARY = 2;
 
-    public Game(String portada, String name, String description, double price, int discount) {
+    public Game(int portada, String name, String description, double price, int discount) {
         this();
         mPortada = portada;
         mName = name;
@@ -49,11 +49,11 @@ public class Game {
         mId = id;
     }
 
-    public String getPortada() {
+    public int getPortada() {
         return mPortada;
     }
 
-    public void setPortada(String portada) {
+    public void setPortada(int portada) {
         mPortada = portada;
     }
 

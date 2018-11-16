@@ -2,6 +2,8 @@ package com.wishsales.model;
 
 import android.content.Context;
 
+import com.wishsales.R;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -32,7 +34,7 @@ public class GameLab {
             game.setDiscount(game.isInSale() ? discount : 0);
             game.setFinalPrice(discount == 0 ? game.getPrice() : game.getPrice() * (discount / 100));
             game.setDisposition(Game.IN_STORE);
-            game.setPortada(i % 2 == 0 ? "" : ""); // TODO cambiar el texto por R.findid
+            game.setPortada(i % 2 == 0 ? R.drawable.icon_1 : R.drawable.icon_2);
 
             if (i % 5 == 0) {
                 if (i % 10 == 0) {
