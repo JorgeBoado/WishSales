@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wishsales.GameActivity;
@@ -61,12 +62,14 @@ public class StoreFragment extends Fragment {
     private class GameHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private Game mGame;
         private Button mTitleTextView;
+        private ImageView mCoverImage;
 
         public GameHolder(LayoutInflater inflater, ViewGroup parent, int viewType) {
             super(inflater.inflate(viewType, parent, false));
             itemView.setOnClickListener(this);
 
             mTitleTextView = (Button) itemView.findViewById(R.id.grid_buy_button);
+            mCoverImage = (ImageView) itemView.findViewById(R.id.grid_game_cover);
         }
 
         @Override
@@ -78,6 +81,7 @@ public class StoreFragment extends Fragment {
         public void bind(Game game) {
             mGame = game;
             mTitleTextView.setText(mGame.getName());
+            mCoverImage.setImageResource(mGame.getPortada());
         }
     }
 

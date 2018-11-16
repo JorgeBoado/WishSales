@@ -71,7 +71,7 @@ public class GameFragment extends Fragment {
         mBuyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mGame.setDisposition(Game.IN_LIBRARY); //TODO actualizar listas
+                mGame.setDisposition(Game.IN_LIBRARY);
                 mWishSwitch.setChecked(false);
                 mWishSwitch.setEnabled(false);
                 buyGame();
@@ -86,7 +86,7 @@ public class GameFragment extends Fragment {
         mWishSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mGame.setDisposition(isChecked ? Game.IN_WISHLIST : Game.IN_STORE); // TODO actualizar listas
+                mGame.setDisposition(isChecked ? Game.IN_WISHLIST : Game.IN_STORE);
             }
         });
 
