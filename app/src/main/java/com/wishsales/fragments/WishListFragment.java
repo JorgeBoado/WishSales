@@ -11,6 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wishsales.R;
@@ -61,12 +63,16 @@ public class WishListFragment extends Fragment {
     private class GameHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private Game mGame;
         private TextView mTitleTextView;
+        private ImageView mCoverImage;
+        private Button mBuyButton;
 
         public GameHolder(LayoutInflater inflater, ViewGroup parent, int viewType) {
             super(inflater.inflate(viewType, parent, false));
             itemView.setOnClickListener(this);
 
             mTitleTextView = (TextView) itemView.findViewById(R.id.list_game_name);
+            mCoverImage = (ImageView)  itemView.findViewById(R.id.list_game_cover);
+            mBuyButton = (Button) itemView.findViewById(R.id.list_buy_button);
         }
 
         @Override
@@ -80,6 +86,15 @@ public class WishListFragment extends Fragment {
             mGame = game;
 
             mTitleTextView.setText(mGame.getName());
+            mCoverImage.setImageResource(mGame.getPortada());
+            mBuyButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mGame.buy();
+                    updateUI();
+                    // TODO actualizar view
+                }
+            });
         }
     }
 

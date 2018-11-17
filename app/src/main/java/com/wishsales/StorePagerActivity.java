@@ -76,7 +76,7 @@ public class StorePagerActivity extends AppCompatActivity {
         });
 
         for (int i = 0; i < mGames.size(); i++) {
-            if(mGames.get(i).equals(gameID)) {
+            if(mGames.get(i).getId().equals(gameID)) {
                 mViewPager.setCurrentItem(i);
                 break;
             }

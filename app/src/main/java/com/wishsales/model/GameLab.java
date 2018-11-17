@@ -38,9 +38,9 @@ public class GameLab {
 
             if (i % 5 == 0) {
                 if (i % 10 == 0) {
-                    game.setDisposition(Game.IN_WISHLIST);
+                    game.addWish();
                 } else {
-                    game.setDisposition(Game.IN_LIBRARY);
+                    game.buy();
                 }
             }
 

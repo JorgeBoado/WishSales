@@ -104,4 +104,17 @@ public class Game {
     public void setInSale(boolean inSale) {
         mInSale = inSale;
     }
+
+    public void buy() {
+        mDisposition = IN_LIBRARY;
+    }
+
+    public void addWish() {
+        mDisposition = IN_WISHLIST;
+    }
+
+    public void removeWish() {
+        mDisposition = IN_STORE;
+    }
+
 }

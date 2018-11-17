@@ -10,7 +10,9 @@
         android:id="@+id/pager_index_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
+        <!-- TODO Jorge añadir botones "siguiente" "anterior"-->
+        <!-- TODO Jorge añadir Un titulo o algo que muestre en que menu estas (tienda,wishlist,library).
+        Posible solucion: Cambiar el nombre de la aplicacion que sale siempre arriba en blanco -->
         <Button
             android:id="@+id/first_index_button"
             android:layout_width="wrap_content"

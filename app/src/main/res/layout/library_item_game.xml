@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- TODO Jorge juego en la biblioteca -->
+<!-- TODO Jorge mostrar boton para jugar -->
+<!-- TODO Jorge mostrar cover del juego -->
+<!-- TODO Abrir dialog con info del juego al pulsar -->
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

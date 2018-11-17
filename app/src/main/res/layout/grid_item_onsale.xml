@@ -34,7 +34,7 @@
             android:layout_width="36dp"
             android:layout_height="match_parent"
             android:contentDescription="@string/grid_item_sale"
-            android:src="@drawable/ic_solved" />
+            android:src="@drawable/ic_descuento" />
     </LinearLayout>
 
 </LinearLayout>

@@ -71,7 +71,7 @@ public class GameFragment extends Fragment {
         mBuyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mGame.setDisposition(Game.IN_LIBRARY);
+                mGame.buy();
                 mWishSwitch.setChecked(false);
                 mWishSwitch.setEnabled(false);
                 buyGame();
@@ -86,7 +86,11 @@ public class GameFragment extends Fragment {
         mWishSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mGame.setDisposition(isChecked ? Game.IN_WISHLIST : Game.IN_STORE);
+                if (isChecked) {
+                    mGame.addWish();
+                } else {
+                    mGame.removeWish();
+                }
             }
         });
 
@@ -95,7 +99,7 @@ public class GameFragment extends Fragment {
 
     private void buyGame() {
         mBuyButton.setEnabled(false);
-        mBuyButton.setText("En posesion"); //TODO cambiar por resource string
+        mBuyButton.setText("En posesion"); // TODO cambiar por resource string
         // TODO añadir precio a gastos totales de la cuenta
     }
 
