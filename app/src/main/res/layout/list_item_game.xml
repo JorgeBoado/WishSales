@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/list_item_game"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@color/paleta3"
     android:orientation="horizontal">
 
     <ImageView
@@ -21,35 +24,37 @@
 
     <TextView
         android:id="@+id/list_game_name"
-        android:layout_width="139dp"
+        android:layout_width="244dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="@string/list_item_name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/list_game_cover"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.485" />
-    <!-- No podemos usar esto por que es de la API 26 y estamos en la 19
-        android:autoSizeTextType="uniform"-->
-
-    <Button
-        android:id="@+id/list_buy_button"
-        android:layout_width="127dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/list_item_button"
-        android:background="@color/green_button"
+        android:gravity="center"
+        android:text="@string/list_item_name"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/list_game_price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/list_game_cover"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- No podemos usar esto por que es de la API 26 y estamos en la 19
+        android:autoSizeTextType="uniform"-->
+
+    <TextView
+        android:id="@+id/list_game_price"
+        android:layout_width="243dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="@string/list_item_price"
+        android:textColor="@color/paleta0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/list_game_name"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.47" />
+        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintStart_toEndOf="@+id/list_game_cover" />
 
 
 </android.support.constraint.ConstraintLayout>

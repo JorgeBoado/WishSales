@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class GameLab {
+    //Creacion de los 100 juegos.
     private static GameLab ourInstance;
     private List<Game> mGames;
 

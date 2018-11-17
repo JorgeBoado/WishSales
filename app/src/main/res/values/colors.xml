@@ -3,9 +3,21 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <!--PaletaDeColores-->
+    <color name="paleta0">#c0c7cf</color>
+    <color name="paleta1">#8a9bae</color>
+    <color name="paleta2">#5c758d</color>
+    <color name="paleta3">#38556c</color>
+    <color name="paleta4">#1c384c</color>
+    <color name="paleta5">#0a1f2b</color>
+    <color name="paleta6">#01070a</color>
     <!--General-->
-    <color name="green_button">#50ab34</color>
+    <color name="green_button">#5fda72</color>
     <!--ViewGame-->
     <color name="view_game_description">#b16c6c6c</color>
+    <!--WishList-->
+    <color name="list_game_price">#848482</color>
+    
+
 
 </resources>
