@@ -1,5 +1,6 @@
 package com.wishsales.fragments;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -21,6 +22,10 @@ import com.wishsales.GameActivity;
 import com.wishsales.model.GameLab;
 
 import java.util.List;
+import java.util.UUID;
+
+import static com.wishsales.fragments.GameDialogFragment.RESULT_BUY;
+import static com.wishsales.fragments.GameDialogFragment.RESULT_REMOVE;
 
 public class WishListFragment extends Fragment {
     public static final String FRAGMENT_ID = "wishlist_fragment";
@@ -130,6 +135,29 @@ public class WishListFragment extends Fragment {
             return R.layout.list_item_game;
         }
 
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
+            return;
+        }
+
+        UUID gameId = (UUID) data.getSerializableExtra(GameDialogFragment.EXTRA_GAME);
+        Game mGame = GameLab.getInstance(getActivity()).getGame(gameId);
+        switch (resultCode) {
+            case RESULT_BUY:
+                mGame.buy();
+                break;
+            case RESULT_REMOVE:
+                mGame.removeWish();
+                break;
+            default:
+                break;
+        }
+
+        updateUI();
     }
 
     @Override

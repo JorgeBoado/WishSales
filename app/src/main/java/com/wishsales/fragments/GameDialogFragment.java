@@ -1,5 +1,6 @@
 package com.wishsales.fragments;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -31,7 +32,10 @@ public class GameDialogFragment extends DialogFragment {
     private ImageView mCoverImage;
 
     private static final String ARG_GAME_ID = "game_id";
+
     public static final String EXTRA_GAME = "com.wishsales.fragments.extra_game";
+    public static final int RESULT_BUY = 1;
+    public static final int RESULT_REMOVE = 2;
 
     public static GameDialogFragment newInstance(UUID gameID) {
         Bundle args = new Bundle();
@@ -42,14 +46,13 @@ public class GameDialogFragment extends DialogFragment {
         return fragment;
     }
 
-    private void sendResult(int resultCode, Game game) {
-        GameLab.getInstance(getActivity())
-                .getGame(game.getId())
-                .setDisposition(game.getDisposition());
+    private void sendResult(int resultCode) {
+        boolean hasChanged = false;
+
 
         if (getTargetFragment() != null) {
             Intent intent = new Intent();
-            intent.putExtra(EXTRA_GAME, game.getId());
+            intent.putExtra(EXTRA_GAME, mGame.getId());
             getTargetFragment().onActivityResult(getTargetRequestCode(), resultCode, intent);
         }
     }
@@ -89,7 +92,7 @@ public class GameDialogFragment extends DialogFragment {
                 mWishSwitch.setChecked(false);
                 mWishSwitch.setEnabled(false);
                 mBuyButton.setEnabled(false);
-                mBuyButton.setText("En posesion");
+                mBuyButton.setText("En posesion"); // TODO cambiar por resource string
             }
         });
 
@@ -101,7 +104,7 @@ public class GameDialogFragment extends DialogFragment {
         mWishSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked)
+                if (isChecked)
                     mGame.addWish();
                 else
                     mGame.removeWish();
@@ -110,10 +113,22 @@ public class GameDialogFragment extends DialogFragment {
 
         return new AlertDialog.Builder(getActivity())
                 .setView(v)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                .setNegativeButton("Quitar", new DialogInterface.OnClickListener() { // TODO cambiar por resource
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //sendResult(Activity.RESULT_OK, game);
+                        sendResult(RESULT_REMOVE);
+                    }
+                })
+                .setPositiveButton("Comprar", new DialogInterface.OnClickListener() { // TODO cambiar por resource
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        sendResult(RESULT_BUY);
+                    }
+                })
+                .setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        sendResult(Activity.RESULT_OK);
                     }
                 })
                 .create();
