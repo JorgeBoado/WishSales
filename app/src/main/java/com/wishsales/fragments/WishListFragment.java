@@ -64,7 +64,6 @@ public class WishListFragment extends Fragment {
         private Game mGame;
         private TextView mTitleTextView;
         private ImageView mCoverImage;
-        private Button mBuyButton;
 
         public GameHolder(LayoutInflater inflater, ViewGroup parent, int viewType) {
             super(inflater.inflate(viewType, parent, false));
@@ -72,7 +71,6 @@ public class WishListFragment extends Fragment {
 
             mTitleTextView = (TextView) itemView.findViewById(R.id.list_game_name);
             mCoverImage = (ImageView)  itemView.findViewById(R.id.list_game_cover);
-            mBuyButton = (Button) itemView.findViewById(R.id.list_buy_button);
         }
 
         @Override
@@ -87,14 +85,7 @@ public class WishListFragment extends Fragment {
 
             mTitleTextView.setText(mGame.getName());
             mCoverImage.setImageResource(mGame.getPortada());
-            mBuyButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mGame.buy();
-                    updateUI();
-                    // TODO actualizar view
-                }
-            });
+
         }
     }
 

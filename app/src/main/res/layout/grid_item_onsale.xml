@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/grid_item_onsale"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_margin="15dp"
+    android:background="@color/paleta3">
 
     <ImageView
         android:id="@+id/grid_game_cover"
@@ -17,7 +19,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_margin="5dp">
 
         <TextView
             android:id="@+id/grid_buy_button"
@@ -25,7 +28,9 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="@string/grid_item_button" />
+            android:text="@string/grid_item_button"
+            android:textAllCaps="true"
+            android:textStyle="bold" />
         <!-- No podemos usar esto por que es de la API 26 y estamos en la 19
         android:autoSizeTextType="uniform"-->
 
