@@ -2,6 +2,7 @@ package com.wishsales.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -20,6 +21,8 @@ import com.wishsales.R;
 import com.wishsales.model.Game;
 import com.wishsales.GameActivity;
 import com.wishsales.model.GameLab;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 import java.util.UUID;
@@ -69,13 +72,19 @@ public class WishListFragment extends Fragment {
         private Game mGame;
         private TextView mTitleTextView;
         private ImageView mCoverImage;
+        private TextView mOldPrice;
+        private TextView mActPrice;
 
         public GameHolder(LayoutInflater inflater, ViewGroup parent, int viewType) {
             super(inflater.inflate(viewType, parent, false));
             itemView.setOnClickListener(this);
 
             mTitleTextView = (TextView) itemView.findViewById(R.id.list_game_name);
-            mCoverImage = (ImageView)  itemView.findViewById(R.id.list_game_cover);
+            mCoverImage = (ImageView) itemView.findViewById(R.id.list_game_cover);
+            mActPrice = (TextView) itemView.findViewById(R.id.list_game_price);
+            if (viewType == R.layout.list_item_game_sale) {
+                mOldPrice = (TextView) itemView.findViewById(R.id.list_game_old_price);
+            }
         }
 
         @Override
@@ -90,6 +99,10 @@ public class WishListFragment extends Fragment {
 
             mTitleTextView.setText(mGame.getName());
             mCoverImage.setImageResource(mGame.getPortada());
+            mActPrice.setText(String.valueOf(mGame.getFinalPrice()));
+            if (mGame.isInSale()) {
+                mOldPrice.setText(String.valueOf(mGame.getPrice()));
+            }
 
         }
     }

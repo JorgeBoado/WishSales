@@ -1,6 +1,7 @@
 package com.wishsales.fragments;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -42,7 +43,11 @@ public class StoreFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_store, container, false);
         mCrimeRecyclerView = (RecyclerView) v.findViewById(R.id.store_fragment);
-        mCrimeRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            mCrimeRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        } else {
+            mCrimeRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+        }
         updateUI();
         return v;
     }
