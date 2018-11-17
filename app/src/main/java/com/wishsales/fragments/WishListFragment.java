@@ -60,12 +60,8 @@ public class WishListFragment extends Fragment {
         GameLab gameLab = GameLab.getInstance(getActivity());
         List<Game> games = gameLab.getGames(Game.IN_WISHLIST);
 
-        if (mAdapter == null) {
-            mAdapter = new GameAdapter(games);
-            mCrimeRecyclerView.setAdapter(mAdapter);
-        } else {
-            mAdapter.notifyDataSetChanged();
-        }
+        mAdapter = new GameAdapter(games);
+        mCrimeRecyclerView.setAdapter(mAdapter);
     }
 
     private class GameHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
