@@ -1,71 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--TODO Hace el Layout horizontal-->
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/game_fragment"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/paleta0">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/view_game_name"
-        style="?android:listSeparatorTextViewStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/view_game_name"
-        android:textAllCaps="true"
-        android:textStyle="bold"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/view_game_cover"
-        android:layout_width="121dp"
-        android:layout_height="113dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="@string/view_game_cover"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_game_name"
-        app:srcCompat="@drawable/icon_1" />
-
-    <TextView
-        android:id="@+id/view_game_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/view_game_price"
-        android:textColor="@color/paleta6"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/view_game_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_game_cover" />
-
-    <TextView
-        android:id="@+id/view_game_description"
+    <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/game_fragment"
         android:layout_width="match_parent"
-        android:layout_height="213dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="148dp"
-        android:background="@color/paleta3"
-        android:padding="10dp"
-        android:text="@string/view_game_description"
-        android:textColor="@color/paleta0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:background="@color/paleta0">
+
+        <TextView
+            android:id="@+id/view_game_name"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:text="@string/view_game_name"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/view_game_cover"
+            android:layout_width="121dp"
+            android:layout_height="113dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/view_game_cover"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_game_name"
+            app:srcCompat="@drawable/icon_1" />
+
+        <TextView
+            android:id="@+id/view_game_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/view_game_price"
+            android:textColor="@color/paleta6"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/view_game_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_game_cover" />
+
+        <TextView
+            android:id="@+id/view_game_description"
+            android:layout_width="match_parent"
+            android:layout_height="213dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="148dp"
+            android:background="@color/paleta3"
+            android:padding="10dp"
+            android:text="@string/view_game_description"
+            android:textColor="@color/paleta0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</FrameLayout>
