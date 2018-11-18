@@ -148,8 +148,11 @@ public class WishListFragment extends Fragment {
         Game mGame = GameLab.getInstance(getActivity()).getGame(gameId);
         switch (resultCode) {
             case RESULT_BUY:
-                mGame.buy();
-                Toast.makeText(getContext(), "Gracias por su compra!", Toast.LENGTH_SHORT).show();
+                if (mGame.buy()) {
+                    Toast.makeText(getContext(), "Gracias por su compra!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "No tiene suficiente saldo!", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case RESULT_REMOVE: // TODO cambiar por resource
                 mGame.removeWish();

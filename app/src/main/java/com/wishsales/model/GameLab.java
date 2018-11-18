@@ -21,6 +21,7 @@ public class GameLab {
     }
 
     private GameLab(Context context) {
+        Wallet wallet = Wallet.getInstance();
         mGames = new ArrayList<>();
 
         // Creates 100 random games with random dispositions
@@ -49,6 +50,7 @@ public class GameLab {
                 if (randomizer < 5) {
                     game.addWish();
                 } else {
+                    wallet.modifyFunds(game.getFinalPrice());
                     game.buy();
                 }
             }

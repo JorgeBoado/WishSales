@@ -106,9 +106,12 @@ public class GameFragment extends Fragment {
         mBuyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mGame.buy();
-                buyGame();
-                Toast.makeText(getContext(), "Gracias por su compra!", Toast.LENGTH_SHORT).show();
+                if (mGame.buy()) {
+                    buyGame();
+                    Toast.makeText(getContext(), "Gracias por su compra!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "No tiene suficiente saldo!", Toast.LENGTH_SHORT).show();
+                }
                 // TODO cambiar por resource
             }
         });

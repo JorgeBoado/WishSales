@@ -105,8 +105,14 @@ public class Game {
         mInSale = inSale;
     }
 
-    public void buy() {
+    public boolean buy() {
+        Wallet w = Wallet.getInstance();
+        if (w.getmCurrentFunds() < mFinalPrice)
+            return false;
+
         mDisposition = IN_LIBRARY;
+        w.spent(mFinalPrice);
+        return true;
     }
 
     public void addWish() {
