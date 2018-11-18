@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="top"
@@ -11,9 +12,6 @@
         android:id="@+id/pager_index_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <!-- TODO Jorge añadir botones "siguiente" "anterior"-->
-        <!-- TODO Jorge añadir Un titulo o algo que muestre en que menu estas (tienda,wishlist,library).
-        Posible solucion: Cambiar el nombre de la aplicacion que sale siempre arriba en blanco -->
         <Button
             android:id="@+id/first_index_button"
             android:layout_width="wrap_content"
@@ -28,7 +26,7 @@
 
         <Button
             android:id="@+id/last_index_button"
-            android:layout_width="88dp"
+            android:layout_width="99dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"

@@ -23,6 +23,7 @@ import com.wishsales.model.GameLab;
 import java.util.UUID;
 
 public class GameDialogFragment extends DialogFragment {
+    //TODO Quita en la opcion OK o cuand le des a comprar que cierre el dialog, pork si compras y le das al OK no se actualiza y sigue en la lista
     private Game mGame;
     private TextView mNameField;
     private TextView mDescriptionField;
