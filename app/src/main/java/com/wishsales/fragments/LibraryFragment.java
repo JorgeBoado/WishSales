@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,12 +60,14 @@ public class LibraryFragment extends Fragment{
     private class GameHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private Game mGame;
         private TextView mTitleTextView;
+        private Button mPlayButton;
 
         public GameHolder(LayoutInflater inflater, ViewGroup parent, int viewType) {
             super(inflater.inflate(viewType, parent, false));
             itemView.setOnClickListener(this);
 
             mTitleTextView = (TextView) itemView.findViewById(R.id.library_game_title);
+            mPlayButton = (Button) itemView.findViewById(R.id.library_game_button);
         }
 
         @Override
@@ -77,6 +80,7 @@ public class LibraryFragment extends Fragment{
             mGame = game;
 
             mTitleTextView.setText(mGame.getName());
+            mPlayButton.setOnClickListener(this);
         }
     }
 
