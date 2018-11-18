@@ -1,8 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- TODO Jorge (boton añadir juego a la tienda y titulo) No se sabe por el momento como-->
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><!-- TODO Jorge (boton añadir juego a la tienda y titulo) No se sabe por el momento como-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/store_fragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/paleta0"
+    android:gravity="top"
+    android:orientation="vertical">
 
-</android.support.v7.widget.RecyclerView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

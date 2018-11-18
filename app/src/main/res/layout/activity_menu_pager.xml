@@ -4,60 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/paleta0"
     android:gravity="top"
-    android:orientation="vertical"
-    android:background="@color/paleta0">
+    android:orientation="vertical">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/pager_index_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/previous_index_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/previous_index_button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_width="168dp"
+            android:layout_width="250dp"
             android:layout_height="47dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:gravity="center"
             android:text="@string/page_index_name"
             android:textAllCaps="true"
+            android:textColor="@color/paleta3"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/next_index_button"
-            app:layout_constraintStart_toEndOf="@+id/previous_index_button"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-        <Button
-            android:id="@+id/next_index_button"
-            android:layout_width="99dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/next_index_button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
-<android.support.v4.view.ViewPager
-    android:id="@+id/menu_view_pager"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/paleta0">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/menu_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/paleta0">
 
 
-</android.support.v4.view.ViewPager>
+    </android.support.v4.view.ViewPager>
 </LinearLayout>
