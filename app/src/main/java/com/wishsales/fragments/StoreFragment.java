@@ -45,11 +45,11 @@ public class StoreFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_store, container, false);
 
         /*
-        mAddGameButton = (Button) v.findViewById(R.id.); // TODO añadir id
+        mAddGameButton = (Button) v.findViewById(R.id.store_add_game);
         mAddGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO Crear dialog para creacion de juego
+                // Creates a new Game by calling a fragment
             }
         });*/
 

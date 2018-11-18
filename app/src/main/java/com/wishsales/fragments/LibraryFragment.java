@@ -16,12 +16,14 @@ import android.widget.Toast;
 import com.wishsales.R;
 import com.wishsales.model.Game;
 import com.wishsales.model.GameLab;
+import com.wishsales.model.Wallet;
 
 import java.util.List;
 
 public class LibraryFragment extends Fragment{
     private RecyclerView mCrimeRecyclerView;
     private GameAdapter mAdapter;
+    private TextView mWalletFunds;
 
     public static final String FRAGMENT_ID = "library_fragment";
     private static final String DIALOG_ANSWER = "game_dialog_answer";
@@ -52,6 +54,14 @@ public class LibraryFragment extends Fragment{
         View v = inflater.inflate(R.layout.fragment_library, container, false);
         mCrimeRecyclerView = (RecyclerView) v.findViewById(R.id.library_fragment);
         mCrimeRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mWalletFunds = (TextView) v.findViewById(R.id.library_funds);
+        mWalletFunds.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO abrir Dialog para introducir fondos
+            }
+        });
+
         updateUI();
         return v;
     }
@@ -59,6 +69,7 @@ public class LibraryFragment extends Fragment{
     private void updateUI() {
         GameLab gameLab = GameLab.getInstance(getActivity());
         List<Game> games = gameLab.getGames(Game.IN_LIBRARY);
+        mWalletFunds.setText(String.valueOf(Wallet.getInstance().getmCurrentFunds()) + "€");
 
         if (mAdapter == null) {
             mAdapter = new GameAdapter(games);

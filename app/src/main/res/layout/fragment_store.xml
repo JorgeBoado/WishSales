@@ -15,11 +15,13 @@
         android:textColor="@color/paleta3"
         android:textStyle="bold" />
 
+    <!--
     <Button
+        android:id="@+id/store_add_game"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/store_button_text"
-        android:background="@color/paleta1"/>
+        android:background="@color/paleta1"/> -->
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/store_fragment"
