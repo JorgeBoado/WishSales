@@ -31,6 +31,11 @@ public class GameFragment extends Fragment {
 
     private static final String ARG_GAME_ID = "game_id";
 
+    /**
+     * Creates a new instance of GameFragment for the wanted game
+     * @param gameId Id of the wanted game info to be shown
+     * @return A new GameFragment with the especified game id saved in args
+     */
     public static GameFragment newInstance(UUID gameId) {
         Bundle args = new Bundle();
         args.putSerializable(ARG_GAME_ID, gameId);
@@ -40,6 +45,10 @@ public class GameFragment extends Fragment {
         return fragment;
     }
 
+    /**
+     * Creates the fragment and assigns the game with the game id in the args
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +56,13 @@ public class GameFragment extends Fragment {
         mGame = GameLab.getInstance(getActivity()).getGame(gameId);
     }
 
+    /**
+     * Creates the view for the especified game
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return The view with all the data binded
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

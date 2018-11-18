@@ -29,12 +29,22 @@ public class StorePagerActivity extends AppCompatActivity {
 
     public static final String EXTRA_GAME_ID = "com.wishsales.pager_game_id";
 
+    /**
+     * Creates a new intent for the store pager with the first game shown especified in extra.
+     * @param context
+     * @param gameID Id of the first game shown in the pager
+     * @return A new intent with a game id as extra
+     */
     public static Intent newIntent(Context context, UUID gameID) {
         Intent intent = new Intent(context, StorePagerActivity.class);
         intent.putExtra(EXTRA_GAME_ID, gameID);
         return intent;
     }
 
+    /**
+     * Creates the Store Pager activity and shows the especified game first
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

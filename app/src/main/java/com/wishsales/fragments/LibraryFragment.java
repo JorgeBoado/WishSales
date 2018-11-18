@@ -1,6 +1,5 @@
 package com.wishsales.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,7 +13,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.wishsales.GameActivity;
 import com.wishsales.R;
 import com.wishsales.model.Game;
 import com.wishsales.model.GameLab;
@@ -27,6 +25,10 @@ public class LibraryFragment extends Fragment{
 
     public static final String FRAGMENT_ID = "library_fragment";
 
+    /**
+     * Creates a new instance of LibraryFragment
+     * @return A new LibraryFragment
+     */
     public static LibraryFragment newInstance() {
         Bundle args = new Bundle();
 
@@ -35,6 +37,13 @@ public class LibraryFragment extends Fragment{
         return fragment;
     }
 
+    /**
+     * Creates a new view with a list of games in library
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return A new view with all the games in library
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,6 +71,12 @@ public class LibraryFragment extends Fragment{
         private TextView mTitleTextView;
         private Button mPlayButton;
 
+        /**
+         * Creates a new GameHolder with the especified view
+         * @param inflater
+         * @param parent View holding the GameHolder
+         * @param viewType Time of view to display
+         */
         public GameHolder(LayoutInflater inflater, ViewGroup parent, int viewType) {
             super(inflater.inflate(viewType, parent, false));
             itemView.setOnClickListener(this);
@@ -70,12 +85,20 @@ public class LibraryFragment extends Fragment{
             mPlayButton = (Button) itemView.findViewById(R.id.library_game_button);
         }
 
+        /**
+         * Action to perform when item clicked.
+         * Shows a toast with a message.
+         * @param v Clicked view
+         */
         @Override
         public void onClick(View v) {
-            // TODO cambiar por value string
             Toast.makeText(getContext(), "Ejecutando "+mGame.getName()+"...", Toast.LENGTH_SHORT).show();
         }
 
+        /**
+         * Binds a game data to the holder
+         * @param game Game to be binded
+         */
         public void bind(Game game) {
             mGame = game;
 
@@ -87,6 +110,10 @@ public class LibraryFragment extends Fragment{
     private class GameAdapter extends RecyclerView.Adapter<GameHolder> {
         private List<Game> mGames;
 
+        /**
+         * Assigns a game list to the adapter
+         * @param games
+         */
         public GameAdapter(List<Game> games) {
             mGames = games;
         }
@@ -115,6 +142,10 @@ public class LibraryFragment extends Fragment{
 
     }
 
+    /**
+     * Action to perform on resume.
+     * Updates the list shown.
+     */
     @Override
     public void onResume() {
         super.onResume();

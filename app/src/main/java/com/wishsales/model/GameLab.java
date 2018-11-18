@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.UUID;
 
 public class GameLab {
-    //Creacion de los 100 juegos.
     private static GameLab ourInstance;
     private List<Game> mGames;
 
@@ -24,10 +23,11 @@ public class GameLab {
     private GameLab(Context context) {
         mGames = new ArrayList<>();
 
+        // Creates 100 random games with random dispositions
         for (int i = 0; i < 100; i++) {
-            int randomizer =(int)(Math.random()*10);
+            int randomizer = (int) (Math.random() * 10);
             int discount = (int) (Math.random() * 100);
-            double price = ((int)((Math.random() * 50) * 100)) / 100.0;
+            double price = ((int) ((Math.random() * 50) * 100)) / 100.0;
             Game game = new Game();
 
             game.setName("Game #" + i);
@@ -39,7 +39,7 @@ public class GameLab {
                 game.setFinalPrice(price);
             } else {
                 double finalPrice = price * ((100 - discount) / 100.0);
-                finalPrice = ((int)(finalPrice*100)) / 100.0;
+                finalPrice = ((int) (finalPrice * 100)) / 100.0;
                 game.setFinalPrice(finalPrice);
             }
             game.setDisposition(Game.IN_STORE);
@@ -58,10 +58,17 @@ public class GameLab {
 
     }
 
+    /**
+     * @return All created games
+     */
     public List<Game> getGames() {
         return mGames;
     }
 
+    /**
+     * @param disposition Disposition of the games wanted
+     * @return All created games with especified disposition
+     */
     public List<Game> getGames(byte disposition) {
         List<Game> games = new ArrayList<>();
         for (Game game : mGames) {
@@ -71,6 +78,10 @@ public class GameLab {
         return games;
     }
 
+    /**
+     * @param id Id of the wanted game
+     * @return Game with especified id
+     */
     public Game getGame(UUID id) {
         for (Game game : mGames) {
             if (game.getId().equals(id))

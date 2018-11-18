@@ -37,6 +37,11 @@ public class GameDialogFragment extends DialogFragment {
     public static final int RESULT_BUY = 1;
     public static final int RESULT_REMOVE = 2;
 
+    /**
+     * Creates a new instance for the dialog with the id of the game to be shown in args
+     * @param gameID Id of the game wanted to be shown
+     * @return New GameDialogFragment for the especified game
+     */
     public static GameDialogFragment newInstance(UUID gameID) {
         Bundle args = new Bundle();
         args.putSerializable(ARG_GAME_ID, gameID);
@@ -49,7 +54,6 @@ public class GameDialogFragment extends DialogFragment {
     private void sendResult(int resultCode) {
         boolean hasChanged = false;
 
-
         if (getTargetFragment() != null) {
             Intent intent = new Intent();
             intent.putExtra(EXTRA_GAME, mGame.getId());
@@ -59,7 +63,10 @@ public class GameDialogFragment extends DialogFragment {
     // TODO añadir un fragmento nuevo con informacion del juego pero sin botones
     // TODO añadir como extra boton del dialog para comprar o eliminar de la lista (fuera del fragment)
 
-
+    /**
+     * Creates de fragment and assigns the game with the game id saved in args
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +74,11 @@ public class GameDialogFragment extends DialogFragment {
         mGame = GameLab.getInstance(getActivity()).getGame(gameID);
     }
 
+    /**
+     * Creates a dialog with a view containing game info inside
+     * @param savedInstanceSate
+     * @return A new dialog with 3 buttons with diferent return values: -1 Ok | 1 Buy | 2 Remove from wishlist
+     */
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceSate) {
         View v = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_game, null);

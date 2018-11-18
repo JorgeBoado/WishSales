@@ -23,12 +23,24 @@ public class MenuPagerActivity extends AppCompatActivity {
 
     public static final String EXTRA_MENU_ID = "com.wishsales.menu_fragment_id";
 
+    /**
+     * Creates a new intent for the pager with an especified menu
+     * @param context
+     * @param menuId The id of the first menu shown
+     * @return A new intent with the menu id in extra
+     */
     public static Intent newIntent(Context context, String menuId) {
         Intent intent = new Intent(context, MenuPagerActivity.class);
         intent.putExtra(EXTRA_MENU_ID, menuId);
         return intent;
     }
 
+    /**
+     * Creates the Activity of the Menu Pager.
+     * There are 3 menus saved: Wishlist, Store and Library.
+     * The first menu shown by default is Store
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
