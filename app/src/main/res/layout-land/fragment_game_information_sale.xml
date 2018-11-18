@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/game_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,13 +26,10 @@
         android:id="@+id/view_game_cover"
         android:layout_width="95dp"
         android:layout_height="73dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="8dp"
         android:contentDescription="@string/view_game_cover"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.34"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/view_game_description"
         app:layout_constraintTop_toBottomOf="@+id/view_game_name"
         app:srcCompat="@drawable/icon_1" />
 
@@ -42,46 +38,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
         android:text="@string/view_game_price_old"
         android:textColor="@color/paleta3"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@+id/view_game_cover"
-        tools:layout_editor_absoluteX="172dp" />
+        app:layout_constraintEnd_toStartOf="@+id/view_game_description"
+        app:layout_constraintTop_toBottomOf="@+id/view_game_cover" />
 
     <TextView
         android:id="@+id/view_game_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="24dp"
         android:text="@string/view_game_price"
         android:textColor="@color/paleta6"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/view_game_description"
-        app:layout_constraintHorizontal_bias="0.987"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_game_price_old"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/view_game_price_old" />
 
     <TextView
         android:id="@+id/view_game_description"
         android:layout_width="195dp"
         android:layout_height="170dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="124dp"
         android:background="@color/paleta3"
         android:padding="10dp"
         android:text="@string/view_game_description"
         android:textColor="@color/paleta0"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.724"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_game_name"
-        app:layout_constraintVertical_bias="0.27" />
+        app:layout_constraintTop_toBottomOf="@+id/view_game_name" />
 </android.support.constraint.ConstraintLayout>
