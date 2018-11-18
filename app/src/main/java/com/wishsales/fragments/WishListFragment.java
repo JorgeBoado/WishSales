@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wishsales.R;
 import com.wishsales.model.Game;
@@ -135,7 +136,6 @@ public class WishListFragment extends Fragment {
             return R.layout.list_item_game;
         }
 
-
     }
 
     @Override
@@ -149,9 +149,11 @@ public class WishListFragment extends Fragment {
         switch (resultCode) {
             case RESULT_BUY:
                 mGame.buy();
+                Toast.makeText(getContext(), "Gracias por su compra!", Toast.LENGTH_SHORT).show();
                 break;
-            case RESULT_REMOVE:
+            case RESULT_REMOVE: // TODO cambiar por resource
                 mGame.removeWish();
+                Toast.makeText(getContext(), "Se ha eliminado de la lista de deseados", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;

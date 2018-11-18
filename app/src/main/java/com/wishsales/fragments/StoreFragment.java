@@ -27,6 +27,7 @@ import java.util.List;
 public class StoreFragment extends Fragment {
     private RecyclerView mCrimeRecyclerView;
     private GameAdapter mAdapter;
+    private Button mAddGameButton;
 
     public static final String FRAGMENT_ID = "store_fragment";
 
@@ -42,6 +43,16 @@ public class StoreFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_store, container, false);
+
+        /*
+        mAddGameButton = (Button) v.findViewById(R.id.); // TODO añadir id
+        mAddGameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Crear dialog para creacion de juego
+            }
+        });*/
+
         mCrimeRecyclerView = (RecyclerView) v.findViewById(R.id.store_fragment);
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             mCrimeRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));

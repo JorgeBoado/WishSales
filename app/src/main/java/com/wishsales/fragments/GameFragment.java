@@ -12,6 +12,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wishsales.R;
 import com.wishsales.model.Game;
@@ -80,40 +81,42 @@ public class GameFragment extends Fragment {
         mCoverImage = (ImageView) v.findViewById(R.id.view_game_cover);
         mCoverImage.setImageResource(mGame.getPortada());
 
-        mBuyButton = (Button) v.findViewById(R.id.view_game_buy);
-        if (mGame.getDisposition() == Game.IN_LIBRARY) {
-            buyGame();
-        }
-        mBuyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mGame.buy();
-                mWishSwitch.setChecked(false);
-                mWishSwitch.setEnabled(false);
-                buyGame();
-            }
-        });
-
         mWishSwitch = (Switch) v.findViewById(R.id.view_game_wish);
         mWishSwitch.setChecked(mGame.getDisposition() == Game.IN_WISHLIST);
-        if (mGame.getDisposition() == Game.IN_LIBRARY) {
-            mWishSwitch.setEnabled(false);
-        }
         mWishSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     mGame.addWish();
-                } else {
+                    Toast.makeText(getContext(), "Se ha añadido a la lista de deseados", Toast.LENGTH_SHORT).show();
+                } else { // TODO cambiar por resource
                     mGame.removeWish();
+                    Toast.makeText(getContext(), "Se ha eliminado de la lista de deseados", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+        mBuyButton = (Button) v.findViewById(R.id.view_game_buy);
+        mBuyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mGame.buy();
+                buyGame();
+                Toast.makeText(getContext(), "Gracias por su compra!", Toast.LENGTH_SHORT).show();
+                // TODO cambiar por resource
+            }
+        });
+
+        if (mGame.getDisposition() == Game.IN_LIBRARY) {
+            buyGame();
+        }
 
         return v;
     }
 
     private void buyGame() {
+        mWishSwitch.setChecked(false);
+        mWishSwitch.setEnabled(false);
         mBuyButton.setEnabled(false);
         mBuyButton.setText("En posesion"); // TODO cambiar por resource string
         // TODO añadir precio a gastos totales de la cuenta

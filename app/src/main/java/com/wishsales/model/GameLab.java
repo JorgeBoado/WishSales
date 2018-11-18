@@ -59,6 +59,14 @@ public class GameLab {
     }
 
     /**
+     * Adds a new Game to the game list
+     * @param game Game to be added
+     */
+    public void addGame(Game game) {
+        mGames.add(game);
+    }
+
+    /**
      * @return All created games
      */
     public List<Game> getGames() {
