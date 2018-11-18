@@ -43,4 +43,20 @@
     <string name="maker_game_price">Precio</string>
     <string name="maker_game_description">Descripcion</string>
     <string name="maker_game_button">Crear Juego</string>
+    <!--AddFunds-->
+    <string name="funds_current_money">Fondos Actuales: </string>
+    <string name="funds_add_five">5€</string>
+    <string name="funds_add_ten">10€</string>
+    <string name="funds_add_twenty">20€</string>
+    <string name="funds_selected_value">Has seleccionado: </string>
+    <!--DialogWindow-->
+    <string name="dialog_close">Close</string>
+    <string name="dialog_remove">Quitar</string>
+    <string name="dialog_buy">Comprar</string>
+    <!--Toast-->
+    <string name="toast_add_wish">Se ha añadido a la lista de deseados</string>
+    <string name="toast_remove_wish">Se ha eliminado de la lista de deseados</string>
+    <string name="toast_thank_buy">Gracias por su compra!</string>
+    <string name="toast_not_funds">No tiene suficiente saldo!</string>
+    <string name="toast_owned">En posesion</string>
 </resources>

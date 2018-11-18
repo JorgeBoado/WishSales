@@ -93,13 +93,13 @@ public class GameDialogFragment extends DialogFragment {
         if (mMoreOptions) {
             return new AlertDialog.Builder(getActivity())
                     .setView(v)
-                    .setNegativeButton("Quitar", new DialogInterface.OnClickListener() { // TODO cambiar por resource
+                    .setNegativeButton("Quitar", new DialogInterface.OnClickListener() { // TODO Belatz cambiar por la resource
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             sendResult(RESULT_REMOVE);
                         }
                     })
-                    .setPositiveButton("Comprar", new DialogInterface.OnClickListener() { // TODO cambiar por resource
+                    .setPositiveButton("Comprar", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             sendResult(RESULT_BUY);

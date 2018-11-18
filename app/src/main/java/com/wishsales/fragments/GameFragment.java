@@ -127,7 +127,8 @@ public class GameFragment extends Fragment {
         mWishSwitch.setChecked(false);
         mWishSwitch.setEnabled(false);
         mBuyButton.setEnabled(false);
-        mBuyButton.setText("En posesion"); // TODO cambiar por resource string
+        mBuyButton.setText("En posesion");
+        // TODO cambiar por resource string
         // TODO añadir precio a gastos totales de la cuenta
     }
 
