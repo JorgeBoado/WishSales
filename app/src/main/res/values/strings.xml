@@ -28,6 +28,7 @@
     <string name="view_game_cover">Portada</string>
     <string name="view_game_wish">Lista de deseos</string>
     <string name="view_game_price">PrecioActual</string>
+    <string name="view_game_old_price">PrecioAntiguo</string>
     <string name="view_game_buy">Comprar</string>
     <string name="view_game_description">Descripcion</string>
     <!--Library-->
