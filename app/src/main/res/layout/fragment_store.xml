@@ -6,6 +6,15 @@
     android:gravity="top"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:gravity="center"
+        android:text="@string/page_index_store"
+        android:textAllCaps="true"
+        android:textColor="@color/paleta3"
+        android:textStyle="bold" />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

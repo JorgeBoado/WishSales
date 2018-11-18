@@ -57,14 +57,14 @@
             app:layout_constraintTop_toBottomOf="@+id/view_game_name" />
 
         <TextView
-            android:id="@+id/view_game_old_price"
+            android:id="@+id/view_game_price_old"
             android:layout_width="93dp"
             android:layout_height="26dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/view_game_old_price"
+            android:text="@string/view_game_price_old"
             android:textColor="@color/paleta2"
             app:layout_constraintBottom_toTopOf="@+id/view_game_price"
             app:layout_constraintEnd_toStartOf="@+id/view_game_description"

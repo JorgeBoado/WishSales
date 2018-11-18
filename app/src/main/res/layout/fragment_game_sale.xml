@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/game_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -49,18 +50,18 @@
         app:layout_constraintTop_toBottomOf="@+id/view_game_cover" />
 
     <TextView
-        android:id="@+id/view_game_price"
-        android:layout_width="80dp"
+        android:id="@+id/view_game_price_old"
+        android:layout_width="88dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
+        android:layout_marginStart="84dp"
         android:layout_marginTop="8dp"
-        android:text="@string/view_game_price"
+        android:text="@string/view_game_price_old"
         android:textColor="@color/paleta2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_game_wish" />
 
     <TextView
-        android:id="@+id/view_game_price_old"
+        android:id="@+id/view_game_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -71,7 +72,7 @@
         app:layout_constraintBottom_toTopOf="@+id/view_game_buy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/view_game_price" />
+        app:layout_constraintStart_toEndOf="@+id/view_game_price_old" />
 
 
     <Button
@@ -86,7 +87,7 @@
         android:textColor="@color/paleta6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_game_price" />
+        app:layout_constraintTop_toBottomOf="@+id/view_game_price_old" />
 
     <TextView
         android:id="@+id/view_game_description"

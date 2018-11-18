@@ -13,7 +13,9 @@
     <string name="first_index_button">Primero</string>
     <string name="previous_index_button">Anterior</string>
     <string name="next_index_button">Siguiente</string>
-    <string name="page_index_name">Nombre Page</string>
+    <string name="page_index_store">Tienda</string>
+    <string name="page_index_wish">Lista de Deseos</string>
+    <string name="page_index_library">Biblioteca</string>
     <!--Store-->
     <string name="store_button_text">Añadir juego</string>
     <!--WishList-->
@@ -28,11 +30,17 @@
     <string name="view_game_cover">Portada</string>
     <string name="view_game_wish">Lista de deseos</string>
     <string name="view_game_price">PrecioActual</string>
-    <string name="view_game_old_price">PrecioAntiguo</string>
+    <string name="view_game_price_old">PrecioAntiguo</string>
     <string name="view_game_buy">Comprar</string>
     <string name="view_game_description">Descripcion</string>
     <!--Library-->
     <string name="library_game_name">Titulo</string>
     <string name="library_game_button">Jugar</string>
     <string name="library_game_cover">Portada</string>
+    <string name="library_game_funds">Fondos</string>
+    <!--GameMaker-->
+    <string name="maker_game_name">Titulo</string>
+    <string name="maker_game_price">Precio</string>
+    <string name="maker_game_description">Descripcion</string>
+    <string name="maker_game_button">Crear Juego</string>
 </resources>
