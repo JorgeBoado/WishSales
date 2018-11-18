@@ -86,7 +86,7 @@ public class WishListFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            GameDialogFragment dialog = GameDialogFragment.newInstance(mGame.getId());
+            GameDialogFragment dialog = GameDialogFragment.newInstance(mGame.getId(), true);
             dialog.setTargetFragment(WishListFragment.this, DIALOG_RESPONSE);
             dialog.show(getFragmentManager(), DIALOG_ANSWER);
         }
@@ -96,9 +96,9 @@ public class WishListFragment extends Fragment {
 
             mTitleTextView.setText(mGame.getName());
             mCoverImage.setImageResource(mGame.getPortada());
-            mActPrice.setText(String.valueOf(mGame.getFinalPrice()));
+            mActPrice.setText(String.valueOf(mGame.getFinalPrice()) + "€");
             if (mGame.isInSale()) {
-                mOldPrice.setText(String.valueOf(mGame.getPrice()));
+                mOldPrice.setText(String.valueOf(mGame.getPrice()) + "€");
             }
 
         }

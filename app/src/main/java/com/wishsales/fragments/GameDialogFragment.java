@@ -24,14 +24,14 @@ import java.util.UUID;
 
 public class GameDialogFragment extends DialogFragment {
     private Game mGame;
+    private boolean mMoreOptions;
     private TextView mNameField;
     private TextView mDescriptionField;
     private TextView mActPriceField;
-    private Button mBuyButton;
-    private Switch mWishSwitch;
     private ImageView mCoverImage;
 
     private static final String ARG_GAME_ID = "game_id";
+    private static final String ARG_HAS_OPTIONS = "has_more_options";
 
     public static final String EXTRA_GAME = "com.wishsales.fragments.extra_game";
     public static final int RESULT_BUY = 1;
@@ -42,9 +42,10 @@ public class GameDialogFragment extends DialogFragment {
      * @param gameID Id of the game wanted to be shown
      * @return New GameDialogFragment for the especified game
      */
-    public static GameDialogFragment newInstance(UUID gameID) {
+    public static GameDialogFragment newInstance(UUID gameID, boolean hasStoreOptions) {
         Bundle args = new Bundle();
         args.putSerializable(ARG_GAME_ID, gameID);
+        args.putBoolean(ARG_HAS_OPTIONS, hasStoreOptions);
 
         GameDialogFragment fragment = new GameDialogFragment();
         fragment.setArguments(args);
@@ -52,16 +53,12 @@ public class GameDialogFragment extends DialogFragment {
     }
 
     private void sendResult(int resultCode) {
-        boolean hasChanged = false;
-
         if (getTargetFragment() != null) {
             Intent intent = new Intent();
             intent.putExtra(EXTRA_GAME, mGame.getId());
             getTargetFragment().onActivityResult(getTargetRequestCode(), resultCode, intent);
         }
     }
-    // TODO añadir un fragmento nuevo con informacion del juego pero sin botones
-    // TODO añadir como extra boton del dialog para comprar o eliminar de la lista (fuera del fragment)
 
     /**
      * Creates de fragment and assigns the game with the game id saved in args
@@ -72,6 +69,7 @@ public class GameDialogFragment extends DialogFragment {
         super.onCreate(savedInstanceState);
         UUID gameID = (UUID) getArguments().getSerializable(ARG_GAME_ID);
         mGame = GameLab.getInstance(getActivity()).getGame(gameID);
+        mMoreOptions = getArguments().getBoolean(ARG_HAS_OPTIONS);
     }
 
     /**
@@ -81,7 +79,7 @@ public class GameDialogFragment extends DialogFragment {
      */
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceSate) {
-        View v = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_game, null);
+        View v = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_game_information, null);
 
         mNameField = (TextView) v.findViewById(R.id.view_game_name);
         mNameField.setText(mGame.getName());
@@ -92,57 +90,36 @@ public class GameDialogFragment extends DialogFragment {
         mCoverImage = (ImageView) v.findViewById(R.id.view_game_cover);
         mCoverImage.setImageResource(mGame.getPortada());
 
-        mBuyButton = (Button) v.findViewById(R.id.view_game_buy);
-        if (mGame.getDisposition() == Game.IN_LIBRARY) {
-            mBuyButton.setEnabled(false);
-            mBuyButton.setText("En posesion");
+        if (mMoreOptions) {
+            return new AlertDialog.Builder(getActivity())
+                    .setView(v)
+                    .setNegativeButton("Quitar", new DialogInterface.OnClickListener() { // TODO cambiar por resource
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            sendResult(RESULT_REMOVE);
+                        }
+                    })
+                    .setPositiveButton("Comprar", new DialogInterface.OnClickListener() { // TODO cambiar por resource
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            sendResult(RESULT_BUY);
+                        }
+                    })
+                    .setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            sendResult(Activity.RESULT_OK);
+                        }
+                    })
+                    .create();
         }
-        mBuyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { // TODO actualizar lista o quitar boton
-                mGame.buy();
-                mWishSwitch.setChecked(false);
-                mWishSwitch.setEnabled(false);
-                mBuyButton.setEnabled(false);
-                mBuyButton.setText("En posesion"); // TODO cambiar por resource string
-            }
-        });
-
-        mWishSwitch = (Switch) v.findViewById(R.id.view_game_wish);
-        mWishSwitch.setChecked(mGame.getDisposition() == Game.IN_WISHLIST);
-        if (mGame.getDisposition() == Game.IN_LIBRARY) {
-            mWishSwitch.setEnabled(false);
-        }
-        mWishSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    mGame.addWish();
-                else
-                    mGame.removeWish();
-            }
-        });
 
         return new AlertDialog.Builder(getActivity())
-                .setView(v)
-                .setNegativeButton("Quitar", new DialogInterface.OnClickListener() { // TODO cambiar por resource
+                .setView(v).setPositiveButton("Close", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        sendResult(RESULT_REMOVE);
+
                     }
-                })
-                .setPositiveButton("Comprar", new DialogInterface.OnClickListener() { // TODO cambiar por resource
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        sendResult(RESULT_BUY);
-                    }
-                })
-                .setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        sendResult(Activity.RESULT_OK);
-                    }
-                })
-                .create();
+                }).create();
     }
 }

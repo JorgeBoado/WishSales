@@ -24,6 +24,8 @@ public class LibraryFragment extends Fragment{
     private GameAdapter mAdapter;
 
     public static final String FRAGMENT_ID = "library_fragment";
+    private static final String DIALOG_ANSWER = "game_dialog_answer";
+    private static final int DIALOG_RESPONSE = 0;
 
     /**
      * Creates a new instance of LibraryFragment
@@ -92,7 +94,9 @@ public class LibraryFragment extends Fragment{
          */
         @Override
         public void onClick(View v) {
-            Toast.makeText(getContext(), "Ejecutando "+mGame.getName()+"...", Toast.LENGTH_SHORT).show();
+            GameDialogFragment dialog = GameDialogFragment.newInstance(mGame.getId(), false);
+            dialog.setTargetFragment(LibraryFragment.this, DIALOG_RESPONSE);
+            dialog.show(getFragmentManager(), DIALOG_ANSWER);
         }
 
         /**
@@ -103,7 +107,12 @@ public class LibraryFragment extends Fragment{
             mGame = game;
 
             mTitleTextView.setText(mGame.getName());
-            mPlayButton.setOnClickListener(this);
+            mPlayButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getContext(), "Ejecutando "+mGame.getName()+"...", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 

@@ -24,6 +24,7 @@ public class GameFragment extends Fragment {
     private Game mGame;
     private TextView mNameField;
     private TextView mDescriptionField;
+    private TextView mOldPriceField;
     private TextView mActPriceField;
     private Button mBuyButton;
     private Switch mWishSwitch;
@@ -67,7 +68,7 @@ public class GameFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_game, container, false);
+        View v = inflater.inflate(mGame.isInSale() ? R.layout.fragment_game_sale : R.layout.fragment_game, container, false);
 
         mNameField = (TextView) v.findViewById(R.id.view_game_name);
         mNameField.setText(mGame.getName());
@@ -76,7 +77,12 @@ public class GameFragment extends Fragment {
         mDescriptionField.setText(mGame.getDescription());
 
         mActPriceField = (TextView) v.findViewById(R.id.view_game_price);
-        mActPriceField.setText(String.valueOf(mGame.getFinalPrice()));
+        mActPriceField.setText(String.valueOf(mGame.getFinalPrice()) + "€");
+
+        if (mGame.isInSale()) {
+            mOldPriceField = (TextView) v.findViewById(R.id.view_game_price_old);
+            mOldPriceField.setText(String.valueOf(mGame.getPrice()) + "€");
+        }
 
         mCoverImage = (ImageView) v.findViewById(R.id.view_game_cover);
         mCoverImage.setImageResource(mGame.getPortada());

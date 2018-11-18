@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.DragEvent;
 import android.view.View;
 import android.widget.Button;
 
@@ -26,6 +27,8 @@ public class StorePagerActivity extends AppCompatActivity {
     private List<Game> mGames;
     private Button mFirstButton;
     private Button mLastButton;
+    private Button mPrevButton;
+    private Button mNextButton;
 
     public static final String EXTRA_GAME_ID = "com.wishsales.pager_game_id";
 
@@ -55,6 +58,8 @@ public class StorePagerActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.store_view_pager);
         mFirstButton = (Button) findViewById(R.id.first_index_button);
         mLastButton = (Button) findViewById(R.id.last_index_button);
+        mNextButton = (Button) findViewById(R.id.next_index_button);
+        mPrevButton = (Button) findViewById(R.id.previous_index_button);
         mGames = GameLab.getInstance(this).getGames();
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -82,6 +87,28 @@ public class StorePagerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mViewPager.setCurrentItem(mGames.size()-1, true);
+            }
+        });
+
+        mNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mViewPager.getCurrentItem() == mGames.size() - 1) {
+                    mViewPager.setCurrentItem(0, true);
+                } else {
+                    mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1, true);
+                }
+            }
+        });
+
+        mPrevButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mViewPager.getCurrentItem() == 0) {
+                    mViewPager.setCurrentItem(mGames.size() - 1, true);
+                } else {
+                    mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1, true);
+                }
             }
         });
 
