@@ -28,6 +28,7 @@ public class GameDialogFragment extends DialogFragment {
     private TextView mNameField;
     private TextView mDescriptionField;
     private TextView mActPriceField;
+    private TextView mOldPriceField;
     private ImageView mCoverImage;
 
     private static final String ARG_GAME_ID = "game_id";
@@ -79,14 +80,23 @@ public class GameDialogFragment extends DialogFragment {
      */
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceSate) {
-        View v = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_game_information, null);
+        View v;
+        if (mGame.isInSale()) {
+            v = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_game_information_sale, null);
+        } else {
+            v = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_game_information, null);
+        }
 
         mNameField = (TextView) v.findViewById(R.id.view_game_name);
         mNameField.setText(mGame.getName());
         mDescriptionField = (TextView) v.findViewById(R.id.view_game_description);
         mDescriptionField.setText(mGame.getDescription());
         mActPriceField = (TextView) v.findViewById(R.id.view_game_price);
-        mActPriceField.setText(String.valueOf(mGame.getFinalPrice()));
+        mActPriceField.setText(String.valueOf(mGame.getFinalPrice()) + "€");
+        if (mGame.isInSale()) {
+            mOldPriceField = (TextView) v.findViewById(R.id.view_game_price_old);
+            mOldPriceField.setText(String.valueOf(mGame.getPrice()) + "€");
+        }
         mCoverImage = (ImageView) v.findViewById(R.id.view_game_cover);
         mCoverImage.setImageResource(mGame.getPortada());
 
