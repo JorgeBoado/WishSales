@@ -1,5 +1,7 @@
 package com.wishsales.fragments;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -22,17 +24,20 @@ import com.wishsales.model.Wallet;
 
 import java.util.List;
 
-public class LibraryFragment extends Fragment{
+public class LibraryFragment extends Fragment {
+    private Wallet mWallet;
     private RecyclerView mCrimeRecyclerView;
     private GameAdapter mAdapter;
     private TextView mWalletFunds;
 
     public static final String FRAGMENT_ID = "library_fragment";
-    private static final String DIALOG_ANSWER = "game_dialog_answer";
+    private static final String DIALOG_GAME_ANSWER = "game_dialog_answer";
+    private static final String DIALOG_FUND_ANSWER = "fund_dialog_answer";
     private static final int DIALOG_RESPONSE = 0;
 
     /**
      * Creates a new instance of LibraryFragment
+     *
      * @return A new LibraryFragment
      */
     public static LibraryFragment newInstance() {
@@ -45,6 +50,7 @@ public class LibraryFragment extends Fragment{
 
     /**
      * Creates a new view with a list of games in library
+     *
      * @param inflater
      * @param container
      * @param savedInstanceState
@@ -54,13 +60,17 @@ public class LibraryFragment extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_library, container, false);
+
+        mWallet = Wallet.getInstance();
         mCrimeRecyclerView = (RecyclerView) v.findViewById(R.id.library_fragment);
         mCrimeRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mWalletFunds = (TextView) v.findViewById(R.id.library_funds);
         mWalletFunds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO abrir Dialog para introducir fondos
+                FundsDialogFragment dialog = FundsDialogFragment.newInstance(Wallet.getInstance().getmCurrentFunds());
+                dialog.setTargetFragment(LibraryFragment.this, DIALOG_RESPONSE);
+                dialog.show(getFragmentManager(), DIALOG_FUND_ANSWER);
             }
         });
 
@@ -89,8 +99,9 @@ public class LibraryFragment extends Fragment{
 
         /**
          * Creates a new GameHolder with the especified view
+         *
          * @param inflater
-         * @param parent View holding the GameHolder
+         * @param parent   View holding the GameHolder
          * @param viewType Time of view to display
          */
         public GameHolder(LayoutInflater inflater, ViewGroup parent, int viewType) {
@@ -105,17 +116,19 @@ public class LibraryFragment extends Fragment{
         /**
          * Action to perform when item clicked.
          * Shows a toast with a message.
+         *
          * @param v Clicked view
          */
         @Override
         public void onClick(View v) {
             GameDialogFragment dialog = GameDialogFragment.newInstance(mGame.getId(), false);
             dialog.setTargetFragment(LibraryFragment.this, DIALOG_RESPONSE);
-            dialog.show(getFragmentManager(), DIALOG_ANSWER);
+            dialog.show(getFragmentManager(), DIALOG_GAME_ANSWER);
         }
 
         /**
          * Binds a game data to the holder
+         *
          * @param game Game to be binded
          */
         public void bind(Game game) {
@@ -125,8 +138,8 @@ public class LibraryFragment extends Fragment{
             mPlayButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getContext(), "Ejecutando "+mGame.getName()+"...", Toast.LENGTH_SHORT).show();
-                }
+                    Toast.makeText(getContext(), "Ejecutando " + mGame.getName() + "...", Toast.LENGTH_SHORT).show();
+                } // TODO Jorge haz tu puto trabajo
             });
         }
     }
@@ -136,6 +149,7 @@ public class LibraryFragment extends Fragment{
 
         /**
          * Assigns a game list to the adapter
+         *
          * @param games
          */
         public GameAdapter(List<Game> games) {
@@ -164,6 +178,15 @@ public class LibraryFragment extends Fragment{
             return R.layout.library_item_game;
         }
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_CANCELED)
+            return;
+
+        mWallet.modifyFunds(data.getDoubleExtra(FundsDialogFragment.EXTRA_AMOUNT, 0));
+        updateUI();
     }
 
     /**

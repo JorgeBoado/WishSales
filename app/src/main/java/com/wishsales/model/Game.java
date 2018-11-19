@@ -111,7 +111,7 @@ public class Game {
             return false;
 
         mDisposition = IN_LIBRARY;
-        w.spent(mFinalPrice);
+        w.spend(mFinalPrice);
         return true;
     }
 

@@ -26,7 +26,7 @@ public class Wallet {
         mCurrentFunds += funds;
    }
 
-   public void spent(double price) {
+   public void spend(double price) {
         if (price < 0 )
             return;
 

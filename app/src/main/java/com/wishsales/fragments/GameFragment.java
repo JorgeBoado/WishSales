@@ -127,7 +127,6 @@ public class GameFragment extends Fragment {
         mWishSwitch.setEnabled(false);
         mBuyButton.setEnabled(false);
         mBuyButton.setText(R.string.toast_owned);
-        // TODO añadir precio a gastos totales de la cuenta
     }
 
     /*
