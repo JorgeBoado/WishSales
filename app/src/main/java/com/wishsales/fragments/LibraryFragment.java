@@ -81,14 +81,11 @@ public class LibraryFragment extends Fragment {
     private void updateUI() {
         GameLab gameLab = GameLab.getInstance(getActivity());
         List<Game> games = gameLab.getGames(Game.IN_LIBRARY);
-        mWalletFunds.setText(String.valueOf(Wallet.getInstance().getmCurrentFunds()) + "€");
+        double funds = ((int)(Wallet.getInstance().getmCurrentFunds() * 100.0)) / 100.0;
+        mWalletFunds.setText(String.valueOf(funds) + "€");
 
-        if (mAdapter == null) {
-            mAdapter = new GameAdapter(games);
-            mCrimeRecyclerView.setAdapter(mAdapter);
-        } else {
-            mAdapter.notifyDataSetChanged();
-        }
+        mAdapter = new GameAdapter(games);
+        mCrimeRecyclerView.setAdapter(mAdapter);
     }
 
     private class GameHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
