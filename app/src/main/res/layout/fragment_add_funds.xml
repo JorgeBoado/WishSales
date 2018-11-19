@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/funds_current_money" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/funds_add_ten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -48,6 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/funds_add_five" />
 
     <Button
+        android:id="@+id/funds_add_twenty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -57,5 +58,21 @@
         android:text="@string/funds_add_twenty"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/funds_add_ten" />
+
+    <TextView
+        android:id="@+id/funds_selected_value"
+        android:layout_width="165dp"
+        android:layout_height="66dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/funds_selected_value"
+        android:textColor="@color/paleta6"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/funds_add_twenty" />
 </android.support.constraint.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.wishsales.fragments;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -81,6 +83,7 @@ public class LibraryFragment extends Fragment{
 
     private class GameHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private Game mGame;
+        private ImageView mCoverImageView;
         private TextView mTitleTextView;
         private Button mPlayButton;
 
@@ -94,6 +97,7 @@ public class LibraryFragment extends Fragment{
             super(inflater.inflate(viewType, parent, false));
             itemView.setOnClickListener(this);
 
+            mCoverImageView = (ImageView) itemView.findViewById(R.id.library_game_image);
             mTitleTextView = (TextView) itemView.findViewById(R.id.library_game_title);
             mPlayButton = (Button) itemView.findViewById(R.id.library_game_button);
         }
@@ -116,7 +120,7 @@ public class LibraryFragment extends Fragment{
          */
         public void bind(Game game) {
             mGame = game;
-
+            mCoverImageView.setImageResource(mGame.getPortada());
             mTitleTextView.setText(mGame.getName());
             mPlayButton.setOnClickListener(new View.OnClickListener() {
                 @Override
