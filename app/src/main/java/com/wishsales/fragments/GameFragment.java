@@ -94,10 +94,10 @@ public class GameFragment extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     mGame.addWish();
-                    Toast.makeText(getContext(), "Se ha añadido a la lista de deseados", Toast.LENGTH_SHORT).show();
-                } else { // TODO cambiar por resource
+                    Toast.makeText(getContext(), R.string.toast_add_wish, Toast.LENGTH_SHORT).show();
+                } else {
                     mGame.removeWish();
-                    Toast.makeText(getContext(), "Se ha eliminado de la lista de deseados", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.toast_remove_wish, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -108,11 +108,10 @@ public class GameFragment extends Fragment {
             public void onClick(View v) {
                 if (mGame.buy()) {
                     buyGame();
-                    Toast.makeText(getContext(), "Gracias por su compra!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.toast_thank_buy, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getContext(), "No tiene suficiente saldo!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.toast_not_funds, Toast.LENGTH_SHORT).show();
                 }
-                // TODO cambiar por resource
             }
         });
 
@@ -127,8 +126,7 @@ public class GameFragment extends Fragment {
         mWishSwitch.setChecked(false);
         mWishSwitch.setEnabled(false);
         mBuyButton.setEnabled(false);
-        mBuyButton.setText("En posesion");
-        // TODO cambiar por resource string
+        mBuyButton.setText(R.string.toast_owned);
         // TODO añadir precio a gastos totales de la cuenta
     }
 

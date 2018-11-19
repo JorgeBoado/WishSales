@@ -149,14 +149,14 @@ public class WishListFragment extends Fragment {
         switch (resultCode) {
             case RESULT_BUY:
                 if (mGame.buy()) {
-                    Toast.makeText(getContext(), "Gracias por su compra!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.toast_thank_buy, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getContext(), "No tiene suficiente saldo!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.toast_not_funds, Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case RESULT_REMOVE: // TODO cambiar por resource
+            case RESULT_REMOVE:
                 mGame.removeWish();
-                Toast.makeText(getContext(), "Se ha eliminado de la lista de deseados", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.toast_remove_wish, Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;

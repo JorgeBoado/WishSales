@@ -93,13 +93,13 @@ public class GameDialogFragment extends DialogFragment {
         if (mMoreOptions) {
             return new AlertDialog.Builder(getActivity())
                     .setView(v)
-                    .setNegativeButton("Quitar", new DialogInterface.OnClickListener() { // TODO Belatz cambiar por la resource
+                    .setNegativeButton(R.string.dialog_remove, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             sendResult(RESULT_REMOVE);
                         }
                     })
-                    .setPositiveButton("Comprar", new DialogInterface.OnClickListener() {
+                    .setPositiveButton(R.string.dialog_buy, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             sendResult(RESULT_BUY);
@@ -115,7 +115,7 @@ public class GameDialogFragment extends DialogFragment {
         }
 
         return new AlertDialog.Builder(getActivity())
-                .setView(v).setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                .setView(v).setPositiveButton(R.string.dialog_close, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
