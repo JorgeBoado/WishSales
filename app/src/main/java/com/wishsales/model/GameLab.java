@@ -44,7 +44,7 @@ public class GameLab {
                 game.setFinalPrice(finalPrice);
             }
             game.setDisposition(Game.IN_STORE);
-            game.setPortada(i % 2 == 0 ? R.drawable.icon_1 : R.drawable.icon_2);
+            game.setPortada(i % 2 == 0 ? R.drawable.icon_1 : R.drawable.icono2);
 
             if (randomizer % 2 == 0) {
                 if (randomizer < 5) {
