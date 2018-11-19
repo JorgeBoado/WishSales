@@ -35,6 +35,7 @@ public class GameFragment extends Fragment {
 
     /**
      * Creates a new instance of GameFragment for the wanted game
+     *
      * @param gameId Id of the wanted game info to be shown
      * @return A new GameFragment with the especified game id saved in args
      */
@@ -49,6 +50,7 @@ public class GameFragment extends Fragment {
 
     /**
      * Creates the fragment and assigns the game with the game id in the args
+     *
      * @param savedInstanceState
      */
     @Override
@@ -60,6 +62,7 @@ public class GameFragment extends Fragment {
 
     /**
      * Creates the view for the especified game
+     *
      * @param inflater
      * @param container
      * @param savedInstanceState
@@ -77,11 +80,11 @@ public class GameFragment extends Fragment {
         mDescriptionField.setText(mGame.getDescription());
 
         mActPriceField = (TextView) v.findViewById(R.id.view_game_price);
-        mActPriceField.setText(String.valueOf(mGame.getFinalPrice()) + "€");
+        mActPriceField.setText(String.valueOf(mGame.getFinalPrice()) + getString(R.string.badge));
 
         if (mGame.isInSale()) {
             mOldPriceField = (TextView) v.findViewById(R.id.view_game_price_old);
-            mOldPriceField.setText(String.valueOf(mGame.getPrice()) + "€");
+            mOldPriceField.setText(String.valueOf(mGame.getPrice()) + getString(R.string.badge));
         }
 
         mCoverImage = (ImageView) v.findViewById(R.id.view_game_cover);

@@ -82,7 +82,7 @@ public class LibraryFragment extends Fragment {
         GameLab gameLab = GameLab.getInstance(getActivity());
         List<Game> games = gameLab.getGames(Game.IN_LIBRARY);
         double funds = ((int)(Wallet.getInstance().getmCurrentFunds() * 100.0)) / 100.0;
-        mWalletFunds.setText(String.valueOf(funds) + "€");
+        mWalletFunds.setText(String.valueOf(funds) + getString(R.string.badge));
 
         mAdapter = new GameAdapter(games);
         mCrimeRecyclerView.setAdapter(mAdapter);
@@ -135,7 +135,7 @@ public class LibraryFragment extends Fragment {
             mPlayButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getContext(), R.string.toast_launch + mGame.getName() + R.string.toast_dotted_line, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.toast_launch) + mGame.getName() + getString(R.string.toast_dotted_line), Toast.LENGTH_SHORT).show();
                 }
             });
         }

@@ -92,10 +92,10 @@ public class GameDialogFragment extends DialogFragment {
         mDescriptionField = (TextView) v.findViewById(R.id.view_game_description);
         mDescriptionField.setText(mGame.getDescription());
         mActPriceField = (TextView) v.findViewById(R.id.view_game_price);
-        mActPriceField.setText(String.valueOf(mGame.getFinalPrice()) + "€");
+        mActPriceField.setText(String.valueOf(mGame.getFinalPrice()) + getString(R.string.badge));
         if (mGame.isInSale()) {
             mOldPriceField = (TextView) v.findViewById(R.id.view_game_price_old);
-            mOldPriceField.setText(String.valueOf(mGame.getPrice()) + "€");
+            mOldPriceField.setText(String.valueOf(mGame.getPrice()) + getString(R.string.badge));
         }
         mCoverImage = (ImageView) v.findViewById(R.id.view_game_cover);
         mCoverImage.setImageResource(mGame.getPortada());
