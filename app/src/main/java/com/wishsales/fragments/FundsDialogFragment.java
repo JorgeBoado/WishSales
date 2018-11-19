@@ -57,10 +57,10 @@ public class FundsDialogFragment extends DialogFragment {
         View v = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_add_funds, null);
 
         mCurrentFunds = (TextView) v.findViewById(R.id.funds_current_money);
-        mCurrentFunds.setText(getString(R.string.funds_current_money) + String.valueOf(mCurrentFundAmount) + "€");
+        mCurrentFunds.setText(getString(R.string.funds_current_money) + String.valueOf(mCurrentFundAmount) + R.string.badge);
 
         mSelectedFunds = (TextView) v.findViewById(R.id.funds_selected_value);
-        mSelectedFunds.setText(getString(R.string.funds_selected_value) + String.valueOf(mSelectedFundAmount) + "€");
+        mSelectedFunds.setText(getString(R.string.funds_selected_value) + String.valueOf(mSelectedFundAmount) + R.string.badge);
 
         m5Button = (Button) v.findViewById(R.id.funds_add_five);
         m10Button = (Button) v.findViewById(R.id.funds_add_ten);
@@ -107,6 +107,6 @@ public class FundsDialogFragment extends DialogFragment {
     }
 
     private void updateUI() {
-        mSelectedFunds.setText(getString(R.string.funds_selected_value) + String.valueOf(mSelectedFundAmount) + "€");
+        mSelectedFunds.setText(getString(R.string.funds_selected_value) + String.valueOf(mSelectedFundAmount) + R.string.badge);
     }
 }

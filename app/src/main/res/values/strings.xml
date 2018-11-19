@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">WishSales</string>
+    <string name="badge">€</string>
     <!--LoadScreen-->
     <string name="start_text">Bienvenido a la aplicacion WishSales</string>
     <string name="start_button">Acceder</string>
@@ -59,4 +60,6 @@
     <string name="toast_thank_buy">Gracias por su compra!</string>
     <string name="toast_not_funds">No tiene suficiente saldo!</string>
     <string name="toast_owned">En posesion</string>
+    <string name="toast_launch">Ejecutando </string>
+    <string name="toast_dotted_line">...</string>
 </resources>

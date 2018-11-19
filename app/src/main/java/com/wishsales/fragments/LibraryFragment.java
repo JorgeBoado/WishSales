@@ -135,8 +135,8 @@ public class LibraryFragment extends Fragment {
             mPlayButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getContext(), "Ejecutando " + mGame.getName() + "...", Toast.LENGTH_SHORT).show();
-                } // TODO Jorge haz tu puto trabajo
+                    Toast.makeText(getContext(), R.string.toast_launch + mGame.getName() + R.string.toast_dotted_line, Toast.LENGTH_SHORT).show();
+                }
             });
         }
     }
